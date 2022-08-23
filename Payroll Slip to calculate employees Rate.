@@ -1,0 +1,57 @@
+ # Create a simple payroll slip to Calculate the payrate of Employees
+
+print("Payroll Slip XYZ Corporation")
+
+E = 1
+Emplist = []
+
+while E <= 5:
+    Employeename = input("what is the employee's name? ")
+    hoursworked = float(input("how many hours worked? "))
+    Payrate = round(float(input("what is the payrate? ")),2)
+
+    if hoursworked > 40:
+        OTpay = hoursworked - 40
+        OTpay = OTpay * (Payrate * 1.5)
+        grosspay = 40 * Payrate + OTpay
+    else:
+        OTpay = 0
+        grosspay = round(hoursworked * Payrate)
+
+# Federal Tax
+    fedtax = round(grosspay * 0.1) 
+# State Tax
+    statetax = round(grosspay * 0.03) 
+# FICA Tax
+    ficatax = round(grosspay * 0.07)
+    netpay = round(grosspay - (fedtax + statetax + ficatax)) 
+    E += 1
+
+    print(f"Employee's name: {Employeename} ")
+    print(f"hours worked: {hoursworked} ")
+    print(f"Pay of rate: ${Payrate} per hour ")
+    print(f"gross of pay: ${grosspay} ")
+    print(f"Overtime pay: ${OTpay} ")
+    print(f"Federal Tax: ${fedtax} ")
+    print(f"State of Tax: ${statetax} ")
+    print(f"FICA Rate: ${ficatax} ")
+    print(f"Net Pay: ${netpay} ")
+
+#exit(0)
+
+else:
+    print("All employee payroll is successfully Recorded")
+
+    choice = input("Do you want to see all Employees y/n? ")
+    if choice.lower() == 'y':
+        print(f"Employee's name: {Employeename} ")
+        print(f"hours worked: {hoursworked} ")
+        print(f"Pay of rate: ${Payrate} per hour ")
+        print(f"gross of pay: ${grosspay} ")
+        print(f"Overtime pay: ${OTpay} ")
+        print(f"Federal Tax: ${fedtax} ")
+        print(f"State of Tax: ${statetax} ")
+        print(f"FICA Rate: ${ficatax} ")
+        print(f"Net Pay: ${netpay} ")
+    else:
+        exit(0)
